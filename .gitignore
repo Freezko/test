@@ -10,3 +10,6 @@ Thumbs.db
 
 /public/assets/library
 bower_components
+
+app/views-dist
+public/assets-dist
