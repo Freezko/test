@@ -1,0 +1,13 @@
+{
+  "name": "slow-pochta.ru",
+  "version": "1.0.0",
+  "dependencies": {
+    "grunt-bowercopy": "^1.1.0"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-bowercopy": "^1.1.0"
+  },
+  "author": "",
+  "license": "ISC"
+}
