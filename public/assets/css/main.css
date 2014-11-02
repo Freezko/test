@@ -1,0 +1,19 @@
+[ng\:cloak], [ng-cloak], .ng-cloak {
+    display: none !important;
+}
+
+.masthead {
+    width: 100%;
+    text-align: center;
+}
+
+#status {
+    width: 200px
+}
+
+.has-error {
+    color: red;
+}
+tr th {
+    text-align: center;
+}
