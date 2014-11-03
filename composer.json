@@ -6,7 +6,9 @@
 	"require": {
 		"laravel/framework": "4.2.*",
 		"barryvdh/laravel-debugbar": "~1.8",
-		"kodeks/smart-assets": "dev-master"
+		"kodeks/smart-assets": "dev-master",
+		"guzzlehttp/guzzle": "~5.0",
+		"nesbot/Carbon": "*"
 	},
 	"autoload": {
 		"classmap": [

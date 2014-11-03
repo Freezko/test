@@ -2,8 +2,9 @@
 
 class StatusController extends BaseController {
 
-	public function Index()
+	public function Index($id)
 	{
+		/*
 		$status = [
 			'trackid' => '123',
 			'statuses' => [
@@ -21,6 +22,25 @@ class StatusController extends BaseController {
 		];
 
 		return Response::json($status);
+		*/
+
+		$pochta = new ApiPochta();
+		try{
+			$statuses = $pochta->getStatuses($id);
+
+			return Response::json([
+				'trackid'   => $id,
+				'statuses'  => $statuses
+			]);
+
+		}catch(\Exception $e){
+			return Response::json([
+				'status'    => 500,
+				'message'   => $e->getMessage()
+			], 500);
+		}
+
+
 	}
 
 }

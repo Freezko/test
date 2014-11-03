@@ -40,6 +40,7 @@ Route::get('views/{path}.{extension}', function($path,$extension)
 
 Route::group(array('prefix' => 'api'), function() {
 
+	\Debugbar::disable();
 	Route::get('status/{id}', 'StatusController@index')
 		->where('id', '[A-Za-z0-9]{10,20}');
 
