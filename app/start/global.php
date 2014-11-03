@@ -79,3 +79,8 @@ App::down(function()
 */
 
 require app_path().'/filters.php';
+
+Queue::failing(function($connection, $job, $data)
+{
+	Log::info(var_export($data));
+});

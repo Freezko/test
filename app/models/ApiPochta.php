@@ -91,4 +91,24 @@ class ApiPochta  {
 
 	}
 
+	/**
+	 * Планировщик проверки статуса
+	 *
+	 * @param $id
+	 * @param bool $check
+	 */
+	public function schedule($id, $check = true) {
+
+		$redis = Redis::connection();
+		if($check) {
+			$schedule = $redis->get('schedule:' . $id); //проверяем, стоит ли уже робот на проверку для данного номера
+		}
+		if(empty($schedule)) {
+			//добавляем мониторинг по данному трек номеру
+			Queue::later(Carbon::now()->addMinutes($this->config['actual_time']), "UpdateStatus", ["id" => $id, 'later' => true]);
+
+			$redis->set('schedule:' . $id, true); //ставим задачу на проверку
+		}
+	}
+
 }

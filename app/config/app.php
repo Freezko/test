@@ -111,7 +111,6 @@ return array(
 		'Illuminate\Mail\MailServiceProvider',
 		'Illuminate\Database\MigrationServiceProvider',
 		'Illuminate\Pagination\PaginationServiceProvider',
-		'Illuminate\Queue\QueueServiceProvider',
 		'Illuminate\Redis\RedisServiceProvider',
 		'Illuminate\Remote\RemoteServiceProvider',
 		'Illuminate\Auth\Reminders\ReminderServiceProvider',
@@ -123,6 +122,7 @@ return array(
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 		'Barryvdh\Debugbar\ServiceProvider',
 		'Kodeks\SmartAssets\SmartAssetsServiceProvider',
+		'Kodeks\PhpResque\PhpResqueServiceProvider',
 	),
 
 	/*

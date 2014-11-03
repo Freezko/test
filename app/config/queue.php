@@ -15,7 +15,7 @@ return array(
 	|
 	*/
 
-	'default' => 'sync',
+	'default' => 'resque',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -29,13 +29,12 @@ return array(
 	*/
 
 	'connections' => array(
-
-		'sync' => array(
-			'driver' => 'sync',
-		),
-
-
-	),
+		'resque' => array(
+			'driver' => 'resque',
+			'queue'  => 'default',
+			'log_time' => 60,
+		)
+    ),
 
 	/*
 	|--------------------------------------------------------------------------

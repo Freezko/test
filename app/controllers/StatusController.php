@@ -4,29 +4,16 @@ class StatusController extends BaseController {
 
 	public function Index($id)
 	{
-		/*
-		$status = [
-			'trackid' => '123',
-			'statuses' => [
-					[
-						'timestamp' => time(),
-						'parcel_status_id' => 0,
-						'message' => 'Text'
-					],
-					[
-						'timestamp' => time(),
-						'parcel_status_id' => 2,
-						'message' => 'Text2'
-					],
-			]
-		];
-
-		return Response::json($status);
-		*/
 
 		$pochta = new ApiPochta();
 		try{
+			//получаем статусы
 			$statuses = $pochta->getStatuses($id);
+
+			$last = end($statuses);
+			if($last['parcel_status_id'] != 4){ // Если посылка еще не в конечном пункте
+				$pochta->schedule($id); //ставим робота на проверку
+			}
 
 			return Response::json([
 				'trackid'   => $id,
@@ -34,6 +21,11 @@ class StatusController extends BaseController {
 			]);
 
 		}catch(\Exception $e){
+
+			//ставим задачу в очередь на обновление статуса по данному трекинг номеру
+			Queue::push("UpdateStatus",["id"=>$id]);
+			$pochta->schedule($id); //ставим робота на проверку если еще не установлен
+
 			return Response::json([
 				'status'    => 500,
 				'message'   => $e->getMessage()
