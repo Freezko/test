@@ -32,7 +32,7 @@ define [config.appName], (app) ->
 								$rootScope.error = 'Пчта ответила: "' + data.message + '"'
 
 					else
-						$rootScope.error = 'Неправильный формат трекинг номера'
+						$scope.error = 'Неправильный формат трекинг номера'
 						$rootScope.status = ''
 						$rootScope.loading = false
 

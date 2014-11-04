@@ -38,13 +38,14 @@ Route::get('views/{path}.{extension}', function($path,$extension)
 |--------------------------------------------------------------------------
 */
 
-Route::group(array('prefix' => 'api'), function() {
+Route::group(array('prefix' => '/'), function() {
 
 	\Debugbar::disable();
-	Route::get('statuses/{id}', 'StatusController@index')
-		->where('id', '[A-Za-z0-9]{10,20}');
+	Route::get('statuses/{id}{format}', 'StatusController@index')
+		->where('id', '[A-Za-z0-9]{10,20}')
+		->where('format', '.json');
 
-	Route::get('status/{id?}', function(){
+	Route::get('statuses/{id?}.json', function(){
 			return Response::json(['status' => 400, 'message' => 'Неверный формат трекинг номера'], 400);
 	});
 });
