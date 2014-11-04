@@ -4,20 +4,15 @@ routes =
 		controller: "Index"
 		view: "index"
 
-	"document":
-		url: "/document/:id"
+	"status":
+		url: "/status/{statusId:[a-zA-Z0-9]{10,20}}"
 		views:
 			"" :
-				controller: "Document"
-				view: "document"
+				controller: "Index"
+				view: "index"
 			"info" :
-				controller: "DocumentInfo"
-				view: "document.info"
-
-	"respect":
-		url: "/respect"
-		controller: "Respect"
-		view: "respect"
+				controller: "StatusInfo"
+				view: "status-info"
 
 	"error":
 		url: "/error"

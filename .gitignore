@@ -13,3 +13,5 @@ bower_components
 
 app/views-dist
 public/assets-dist
+
+node_modules

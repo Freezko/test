@@ -4,7 +4,9 @@ define ["services/routeResolver"], ->
 		"ngRoute"
 		"ngAnimate"
 		"routeResolverServices"
+		"pochtaServices"
 		"ui.router"
+		"angular-loading-bar"
 	])
 	app.config ["$stateProvider", "$urlRouterProvider","$locationProvider", "$routeProvider", "routeResolverProvider", "$controllerProvider", "$compileProvider", "$filterProvider", "$provide", "$httpProvider"
 		($stateProvider, $urlRouterProvider,$locationProvider, $routeProvider, routeResolverProvider, $controllerProvider, $compileProvider, $filterProvider, $provide, $httpProvider) ->

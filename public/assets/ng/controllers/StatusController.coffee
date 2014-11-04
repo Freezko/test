@@ -1,11 +1,11 @@
 "use strict"
 
 define [config.appName], (app) ->
-	app.register.controller "DocumentInfoController", [
+	app.register.controller "StatusController", [
 		"$scope"
 		"$http"
 		"$stateParams"
 		($scope, $http, $stateParams) ->
-			$scope.title = "Info " + "#{$stateParams.id}"
+			$scope.title = "Document " + "#{$stateParams.id}"
 	]
 	return

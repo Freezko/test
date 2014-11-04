@@ -26,6 +26,13 @@ module.exports = (grunt) ->
 					'angular-route.min.js': 'angular-route/angular-route.min.js'
 					'angular-ui-router.min.js': 'angular-ui-router/release/angular-ui-router.min.js'
 					'angular-animate.min.js': 'angular-animate/angular-animate.min.js'
+					'angular-loading-bar.min.js': 'angular-loading-bar/build/loading-bar.min.js'
+					'angular-loading-bar.min.css': 'angular-loading-bar/build/loading-bar.min.css'
+			css:
+				options:
+					destPrefix: '<%= options.app %>/library/css'
+				files:
+					'animate.min.css': 'animate.css/animate.min.css'
 
 		smart_assets:
 			compile:
