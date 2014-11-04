@@ -11,8 +11,11 @@ class StatusController extends BaseController {
 			$statuses = $pochta->getStatuses($id);
 
 			$last = end($statuses);
+
 			if($last['parcel_status_id'] != 4){ // Если посылка еще не в конечном пункте
-				$pochta->schedule($id); //ставим робота на проверку
+				if(!(count($statuses) == 1 && $last['parcel_status_id'] == 0)) { //и в массиве не 1 элемент с ненайденной посылкой
+					$pochta->schedule($id); //ставим робота на проверку
+				}
 			}
 
 			return Response::json([
